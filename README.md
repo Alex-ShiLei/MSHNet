@@ -1,6 +1,6 @@
 # Multi-Simlarity Based Hyperrelation Network for Few-Shot Segmentation
 
-This is the implementation of the paper "Multi-Simlarity Based Hyperrealation Network for Few-Shot Segmentation for Few-Shot Segmentation". 
+This is the implementation of the paper ["Multi-Simlarity Based Hyperrealation Network for Few-Shot Segmentation for Few-Shot Segmentation"](https://arxiv.org/abs/2203.09550). 
 
 Implemented on Python 3.7 and Pytorch 1.8.
 The main structure of the network is as follows:
