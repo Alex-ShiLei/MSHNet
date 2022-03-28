@@ -6,7 +6,7 @@ import torch.nn as nn
 import torch
 import os
 #os.environ["CUDA_VISIBLE_DEVICES"] = "0"
-from model.hsnet import HypercorrSqueezeNetwork
+from model.mshnet import MsimilarityHyperrelationNetwork
 from common.logger import Logger, AverageMeter
 from common.evaluation import Evaluator
 from common import utils
@@ -68,7 +68,7 @@ if __name__ == '__main__':
     Logger.initialize(args, training=True)
 
     # Model initialization
-    model = HypercorrSqueezeNetwork(args.backbone, False,shot=args.shot)
+    model = MsimilarityHyperrelationNetwork(args.backbone, False,shot=args.shot)
     Logger.log_params(model)
 
     # Device setup
