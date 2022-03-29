@@ -153,7 +153,7 @@ class DatasetPASCAL(Dataset):
         if self.split=='trn':
             for key in self.class_ids:
                 print(key,":",len(img_metadata_classwise[key]))
-                img_meta=random.choices(img_metadata_classwise[key],k=450)
+                img_meta=random.choices(img_metadata_classwise[key],k=750)
                 meta_data+=[[img,key] for img in img_meta]
             self.img_metadata=meta_data
             random.shuffle(self.img_metadata)
