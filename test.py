@@ -1,4 +1,4 @@
-r""" Hypercorrelation Squeeze testing code """
+r""" MSHNet testing code """
 import argparse
 
 import torch.nn.functional as F
@@ -15,7 +15,7 @@ import os
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 def test(model, dataloader, nshot):
-    r""" Test HSNet """
+    r""" Test MSHNet """
 
     # Freeze randomness during testing for reproducibility
     utils.fix_randseed(0)
@@ -51,7 +51,7 @@ def test(model, dataloader, nshot):
 if __name__ == '__main__':
 
     # Arguments parsing
-    parser = argparse.ArgumentParser(description='Hypercorrelation Squeeze Pytorch Implementation')
+    parser = argparse.ArgumentParser(description='MSHNet Pytorch Implementation')
     parser.add_argument('--datapath', type=str, default='/home/alex/pytorch/data/VOCdevkit')
     #parser.add_argument('--datapath', type=str, default='/home/alex/pytorch/data')
     parser.add_argument('--benchmark', type=str, default='pascal', choices=['pascal', 'coco', 'fss'])
@@ -90,7 +90,7 @@ if __name__ == '__main__':
     FSSDataset.initialize(img_size=473, datapath=args.datapath, use_original_imgsize=args.use_original_imgsize)
     dataloader_test = FSSDataset.build_dataloader(args.benchmark, args.bsz, args.nworker, args.fold, 'test', args.nshot)
 
-    # Test HSNet
+    # Test MSHNet
     with torch.no_grad():
         test_miou, test_fb_iou = test(model, dataloader_test, args.nshot)
     Logger.info('Fold %d mIoU: %5.2f \t FB-IoU: %5.2f' % (args.fold, test_miou.item(), test_fb_iou.item()))
