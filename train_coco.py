@@ -1,4 +1,4 @@
-r""" Hypercorrelation Squeeze training (validation) code """
+r""" MSHNet training (validation) code """
 import argparse
 
 import torch.optim as optim
@@ -12,7 +12,7 @@ from common.evaluation import Evaluator
 from common import utils
 from data.dataset import FSSDataset
 def train(epoch, model, dataloader, optimizer, training):
-    r""" Train HSNet """
+    r""" Train MSHNet """
 
     # Force randomness during training / freeze randomness during testing
     utils.fix_randseed(None) if training else utils.fix_randseed(0)
@@ -21,7 +21,7 @@ def train(epoch, model, dataloader, optimizer, training):
 
     for idx, batch in enumerate(dataloader):
 
-        # 1. Hypercorrelation Squeeze Networks forward pass
+        # 1. MSHNet forward pass
         batch = utils.to_cuda(batch)
         logit_mask,loss = model(batch['query_img'], batch['support_imgs'], batch['support_masks'],batch['query_mask'])
         pred_mask = logit_mask.argmax(dim=1)
@@ -49,7 +49,7 @@ def train(epoch, model, dataloader, optimizer, training):
 if __name__ == '__main__':
 
     # Arguments parsing
-    parser = argparse.ArgumentParser(description='Hypercorrelation Squeeze Pytorch Implementat1ion')
+    parser = argparse.ArgumentParser(description='MSHNet Pytorch Implementat1ion')
     #parser.add_argument('--datapath', type=str, default='/home/alex/project/data/voc/VOCdevkit-temp')
     parser.add_argument('--datapath', type=str, default='/home/alex/SSD/data')
     parser.add_argument('--save_path', type=str, default='./resume-coco101_0')
@@ -101,7 +101,7 @@ if __name__ == '__main__':
     dataloader_trn = FSSDataset.build_dataloader(args.benchmark, args.bsz, args.nworker, args.fold, 'trn',shot=args.shot)
     dataloader_val = FSSDataset.build_dataloader(args.benchmark, args.bsz, args.nworker, args.fold, 'val',shot=args.shot)
 
-    # Train HSNet
+    # Train MSHNet
     best_val_miou = float('-inf')
     best_val_loss = float('inf')
     while epoch < args.niter:
