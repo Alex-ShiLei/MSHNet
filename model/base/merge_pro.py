@@ -231,7 +231,7 @@ class merge(nn.Module):
             x2=F.interpolate(x2, lossSize,mode='bilinear', align_corners=True)
             x3 = F.interpolate(x3, lossSize, mode='bilinear', align_corners=True)
             x4 = F.interpolate(x4, lossSize, mode='bilinear', align_corners=True)
-            loss=0.5*(self.criter(x2,gt)+self.criter(x3,gt)+self.criter(x4,gt))+self.criter(d2,gtOut)
+            loss=0.3*(self.criter(x2,gt)+self.criter(x3,gt)+self.criter(x4,gt))+self.criter(d2,gtOut)
             return d2,loss
         else:
             gt = gt.unsqueeze(1).float()
