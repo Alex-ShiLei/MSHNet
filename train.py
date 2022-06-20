@@ -58,7 +58,7 @@ if __name__ == '__main__':
     parser.add_argument('--shot', type=int, default=1)
     parser.add_argument('--momentum', type=float, default=0.9)
     parser.add_argument('--weight_decay', type=float, default=0.00005)
-    parser.add_argument('--lr', type=float, default=0.01)
+    parser.add_argument('--lr', type=float, default=0.025)
     parser.add_argument('--niter', type=int, default=300)
     parser.add_argument('--nworker', type=int, default=12)
     parser.add_argument('--fold', type=int, default=2, choices=[0, 1, 2, 3])
