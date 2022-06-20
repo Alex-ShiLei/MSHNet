@@ -5,12 +5,12 @@ This is the implementation of the paper ["Multi-Simlarity Based Hyperrealation N
 Implemented on Python 3.7 and Pytorch 1.8.
 The main structure of the network is as follows:
 <p align="middle">
-    <img src="./info/structure.bmp">
+    <img src="./info/main_structure.jpg">
 </p>
 
 The following figure shows our proposed Symmetric Merging Block (SMB):
 <p align="middle">
-    <img src="./info/smb.bmp">
+    <img src="./info/SMB.jpg">
 </p>
 
 ## Requirements
